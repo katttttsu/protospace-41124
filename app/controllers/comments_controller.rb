@@ -13,6 +13,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @prototype
     else
+      @comments = @prototype.comments.includes(:user)
       flash.now[:alert] = @comment.errors.full_messages.to_sentence
       render 'prototypes/show'
     end
