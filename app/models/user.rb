@@ -9,5 +9,6 @@ class User < ApplicationRecord
   validates :position,presence: true
   
   has_many :comments, dependent: :destroy
+  has_many :prototypes
 
 end
